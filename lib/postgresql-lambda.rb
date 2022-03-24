@@ -7,7 +7,7 @@ if defined?(Rails)
   [kernel, ::Kernel].each do |k|
     k.send :remove_method, :gem
     k.send :define_method, :gem do |dep, *reqs|
-      unless ['mysql2'].include?(dep)
+      unless ['postgresql'].include?(dep)
         $ORIG_GEM_METHOD.call(dep, *reqs)
       end
     end

@@ -6,10 +6,10 @@ services:
     volumes:
       - $PWD:/var/task
     depends_on:
-      - mysql
+      - postgresql
     links:
-      - mysql
-  mysql:
-    image: mysql:5.7
+      - postgresql
+  postgresql:
+    image: docker pull postgres:13.6-alpine
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - POSTGRESQL_ROOT_PASSWORD=root

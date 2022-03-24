@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE_NAME=mysql2-lambda
+IMAGE_NAME=postgresql-lambda
 
 rm -rf ./share
 mkdir ./share
@@ -19,10 +19,14 @@ cp ./README.md ./gem
 cp ./CHANGELOG.md ./gem
 cp ./VERSION ./gem
 cp ./BUILD ./gem
-cp ./mysql2-lambda.gemspec ./gem
-cp ./lib/mysql2-lambda.rb ./gem/lib
+cp ./postgresql-lambda.gemspec ./gem
+cp ./lib/postgresql-lambda.rb ./gem/lib
 
 pushd ./gem
 
-gem build mysql2-lambda.gemspec
-mv mysql2-lambda-* ../
+gem build postgresql-lambda.gemspec
+mv postgresql-lambda-* ../
+
+
+
+# docker container run -v "${PWD}/share:/share" -it postgresql-lambda:latest /bin/bash
